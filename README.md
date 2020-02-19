@@ -6,6 +6,8 @@ Parking is a simple Java software built using TDD. We are using test-first metho
 * Clean Code
 * SOLID principles
 * Domain-Driven Design
+* KISS
+* YAGNI
 
 ## Phases
 This project is being built in 3 phases:
