@@ -41,7 +41,7 @@ A parking can have different pricing according how much time car stay parked in.
 + Period until 1 hour: price is $1
 + Period until 2 hours: price is $2
 + Period until 12 hours: each 1 hour period add $1 
-+ After 12 hours the price is added in $10 by day
++ After 12 hours the price is added in $10 by daily
  
 <b>Example:</b>  
 + 3 hours: price is $3
