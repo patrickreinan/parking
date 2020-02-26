@@ -18,8 +18,7 @@ public class Result {
         this.value = value;
     }
 
-    public Result(Optional<Double> value, String[] messages) {
-        this.value = value;
+    public Result(String[] messages) {
         this.messages = messages;
     }
 
