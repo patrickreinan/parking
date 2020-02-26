@@ -16,7 +16,7 @@ public class PricingType3Tests extends PricingTypeTests {
         super(timeInMinutes, expectedResult);
     }
 
-    @Parameterized.Parameters(name = "{index}: PricingType2Tests.calculate({0})={1}")
+    @Parameterized.Parameters(name = "{index}: PricingType3Tests.calculate({0})={1}")
     public static Iterable<Object[]> data() {
 
         var builder = new TimeBuilder();
