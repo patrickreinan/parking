@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import services.SimulationService;
+import util.Result;
+
+import java.util.Optional;
 
 public abstract class PricingTypeTests {
     private final int timeInMinutes;
@@ -26,7 +29,9 @@ public abstract class PricingTypeTests {
 
         service = Mockito.mock(SimulationService.class);
         pricingType = getPricingType();
-        Mockito.when(service.calculate(pricingType, timeInMinutes)).thenReturn(expectedResult);
+
+
+        Mockito.when(service.calculate(pricingType, timeInMinutes)).thenReturn(new Result(Optional.of(expectedResult)));
 
     }
 
@@ -37,7 +42,8 @@ public abstract class PricingTypeTests {
         var result = service.calculate(pricingType, timeInMinutes);
 
         //assert...
-        Assert.assertTrue(result==expectedResult);
+        Assert.assertTrue(result.getValue().get()==expectedResult);
+        Assert.assertTrue(result.isSuccess());
 
     }
 }

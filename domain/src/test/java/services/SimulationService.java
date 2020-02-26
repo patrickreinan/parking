@@ -1,8 +1,9 @@
 package services;
 
 import models.PricingType;
+import util.Result;
 
 public interface SimulationService {
 
-     double calculate(PricingType pricingType, int minutes);
+     Result calculate(PricingType pricingType, int minutes);
 }
