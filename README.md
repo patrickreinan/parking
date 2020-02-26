@@ -48,4 +48,4 @@ A parking can have different pricing according how much time car stay parked in.
 + 14 hours: price is $22 
 
 # Solution
-A application to create and simulating pricing.
+A application to simulate pricing.
