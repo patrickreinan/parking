@@ -1,4 +1,4 @@
-package tests;
+package tests.pricingtypetests;
 
 import models.PricingType;
 import org.junit.Assert;

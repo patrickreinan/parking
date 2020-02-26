@@ -1,12 +1,11 @@
-package  tests;
+package tests.pricingtypetests;
 
 import models.PricingType;
-import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
-import services.SimulationService;
+import tests.TimeBuilder;
+
 import java.util.Arrays;
 
 @RunWith(value = Parameterized.class)

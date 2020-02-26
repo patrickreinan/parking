@@ -1,21 +1,18 @@
-package tests;
+package tests.pricingtypetests;
 
 import models.PricingType;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
-import services.SimulationService;
+import tests.TimeBuilder;
 
 import java.util.Arrays;
 
 @RunWith(value = Parameterized.class)
-public class PricingType2Tests extends  PricingTypeTests {
+public class PricingType3Tests extends PricingTypeTests {
 
 
-    public PricingType2Tests(int timeInMinutes, double expectedResult) {
+    public PricingType3Tests(int timeInMinutes, double expectedResult) {
         super(timeInMinutes, expectedResult);
     }
 
@@ -28,20 +25,24 @@ public class PricingType2Tests extends  PricingTypeTests {
                         {
                                 builder
                                         .setHours(1)
-                                        .toMinutes(), 5.0},
+                                        .toMinutes(), 1.0},
                         {
                                 builder
                                         .reset()
-                                        .setHours(4)
-                                        .toMinutes(), 20.0},
+                                        .setHours(3)
+                                        .toMinutes(), 3.0},
                         {
                                 builder.reset()
                                         .setHours(12)
-                                        .toMinutes(), 60.00},
+                                        .toMinutes(), 12.00},
                         {
                                 builder.reset()
-                                        .setDays(30)
-                                        .toMinutes(), 3600.00}
+                                        .setHours(14)
+                                        .toMinutes(), 22.00},
+                        {
+                                builder.reset()
+                                .setDays(3)
+                                .toMinutes(), 32.00}
                 }
         );
     }
@@ -50,5 +51,6 @@ public class PricingType2Tests extends  PricingTypeTests {
     public PricingType getPricingType() {
         return Mockito.mock(PricingType.class);
     }
+
 
 }
