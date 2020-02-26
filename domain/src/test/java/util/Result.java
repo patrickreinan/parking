@@ -23,7 +23,7 @@ public class Result {
     }
 
     public boolean isSuccess() {
-        return messages == null || messages.length != 0;
+        return messages == null || messages.length == 0;
     }
 
 

@@ -1,4 +1,4 @@
-package tests;
+package tests.timebuildertests;
 
 import org.junit.Test;
 import tests.TimeBuilder;
