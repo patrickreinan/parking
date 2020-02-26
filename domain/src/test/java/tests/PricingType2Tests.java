@@ -12,17 +12,11 @@ import services.SimulationService;
 import java.util.Arrays;
 
 @RunWith(value = Parameterized.class)
-public class PricingType2Tests {
+public class PricingType2Tests extends  PricingTypeTests {
 
-    private final int timeInMinutes;
-    private final double expectedResult;
-    private SimulationService service;
-    private PricingType pricingType;
 
     public PricingType2Tests(int timeInMinutes, double expectedResult) {
-        this.timeInMinutes = timeInMinutes;
-        this.expectedResult = expectedResult;
-
+        super(timeInMinutes, expectedResult);
     }
 
     @Parameterized.Parameters(name = "{index}: PricingType2Tests.calculate({0})={1}")
@@ -52,20 +46,9 @@ public class PricingType2Tests {
         );
     }
 
-    @Test
-    public void calculate_price() {
-
-        //arrange, act
-        var result = service.calculate(pricingType, timeInMinutes);
-
-        //assert...
-        Assert.assertTrue(result == expectedResult);
+    @Override
+    public PricingType getPricingType() {
+        return Mockito.mock(PricingType.class);
     }
 
-    @Before
-    public void setUp() throws Exception {
-        service = Mockito.mock(SimulationService.class);
-        pricingType = Mockito.mock(PricingType.class);
-        Mockito.when(service.calculate(pricingType, timeInMinutes)).thenReturn(expectedResult);
-    }
 }
