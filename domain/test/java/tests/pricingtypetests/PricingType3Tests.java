@@ -1,6 +1,7 @@
 package tests.pricingtypetests;
 
 import models.PricingType;
+import models.PricingType3;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
@@ -49,7 +50,7 @@ public class PricingType3Tests extends PricingTypeTests {
 
     @Override
     public PricingType getPricingType() {
-        return Mockito.mock(PricingType.class);
+        return new PricingType3();
     }
 
 

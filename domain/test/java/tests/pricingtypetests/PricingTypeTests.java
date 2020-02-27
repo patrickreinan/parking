@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import services.SimulationService;
+import services.SimulationServiceImpl;
 import util.Result;
 
 import java.util.Optional;
@@ -21,17 +22,14 @@ public abstract class PricingTypeTests {
 
         this.timeInMinutes = timeInMinutes;
         this.expectedResult = expectedResult;
-        setupMock();
+        initialize();
 
     }
 
-    private void setupMock() {
+    private void initialize() {
 
-        service = Mockito.mock(SimulationService.class);
         pricingType = getPricingType();
-
-
-        Mockito.when(service.calculate(pricingType, timeInMinutes)).thenReturn(new Result(Optional.of(expectedResult)));
+        service = new SimulationServiceImpl();
 
     }
 

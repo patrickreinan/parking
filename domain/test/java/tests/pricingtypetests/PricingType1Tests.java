@@ -1,9 +1,12 @@
 package tests.pricingtypetests;
 
 import models.PricingType;
+import models.PricingType1;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
+import services.SimulationService;
+import services.SimulationServiceImpl;
 import tests.TimeBuilder;
 
 import java.util.Arrays;
@@ -45,6 +48,7 @@ public class PricingType1Tests extends  PricingTypeTests {
 
     @Override
     public PricingType getPricingType() {
-        return Mockito.mock(PricingType.class);
+        return new PricingType1();
     }
+
 }
