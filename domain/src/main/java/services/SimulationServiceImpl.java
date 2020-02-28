@@ -1,6 +1,6 @@
 package services;
 
-import models.PricingType;
+import models.pricingtype.PricingType;
 import util.Result;
 
 import java.util.Optional;

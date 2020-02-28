@@ -1,6 +1,6 @@
 package models.calculator;
 
-import models.PricingTypeData;
+import models.pricingtype.PricingTypeData;
 
 public abstract class PricingCalculator {
 

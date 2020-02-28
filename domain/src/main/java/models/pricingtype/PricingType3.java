@@ -1,4 +1,4 @@
-package models;
+package models.pricingtype;
 
 public class PricingType3 implements PricingType {
 

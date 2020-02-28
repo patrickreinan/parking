@@ -1,4 +1,6 @@
-package models;
+package models.pricingtype;
+
+import models.PricingTimeValue;
 
 import java.util.ArrayList;
 

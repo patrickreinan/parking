@@ -1,10 +1,9 @@
 package tests.pricingtypetests;
 
-import models.PricingType;
-import models.PricingType3;
+import models.pricingtype.PricingType;
+import models.pricingtype.PricingType3;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
 import tests.TimeBuilder;
 
 import java.util.Arrays;

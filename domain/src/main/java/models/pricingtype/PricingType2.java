@@ -1,4 +1,4 @@
-package models;
+package models.pricingtype;
 
 public class PricingType2 implements PricingType {
     @Override
