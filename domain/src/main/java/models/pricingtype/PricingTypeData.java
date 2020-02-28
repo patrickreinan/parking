@@ -1,9 +1,5 @@
 package models.pricingtype;
 
-import models.PricingTimeValue;
-
-import java.util.ArrayList;
-
 public class PricingTypeData {
 
 

@@ -1,6 +1,6 @@
 package models.calculator;
 
-import models.PricingTimeValue;
+import models.pricingtype.PricingTimeValue;
 import models.pricingtype.PricingTypeData;
 
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package tests.pricingtypetests;
 
-import models.PricingTimeValue;
+import models.pricingtype.PricingTimeValue;
 import models.pricingtype.PricingType;
 import models.pricingtype.PricingType1;
 import models.pricingtype.PricingTypeData;
