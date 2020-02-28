@@ -28,7 +28,7 @@ A parking can have different pricing according how much time car stay parked in.
 <b>Example:</b>  
 + 3 hours: price is $10
 + 14 hours: price is $20 
-+ 3 days: price is $30 
++ 3 days: price is $40 
 
 ## Pricing Type 2: 
 + Each hour has a fixed price ($5)
