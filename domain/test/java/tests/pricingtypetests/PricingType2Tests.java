@@ -1,7 +1,6 @@
 package tests.pricingtypetests;
 
-import models.pricingtype.PricingType;
-import models.pricingtype.PricingType2;
+import models.pricingtype.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import tests.TimeBuilder;
@@ -9,7 +8,7 @@ import tests.TimeBuilder;
 import java.util.Arrays;
 
 @RunWith(value = Parameterized.class)
-public class PricingType2Tests extends  PricingTypeTests {
+public class PricingType2Tests extends PricingTypeTests {
 
 
     public PricingType2Tests(int timeInMinutes, double expectedResult) {
@@ -45,7 +44,15 @@ public class PricingType2Tests extends  PricingTypeTests {
 
     @Override
     public PricingType getPricingType() {
-        return new PricingType2();
+
+        var pricingTypeData = new PricingTypeData(
+                new PricingTimeValue[]{
+                        new PricingTimeValue(PricingTimeValue.Types.TYPE_EACH, 1 * 60, 5)
+                });
+
+        return new PricingType2(pricingTypeData);
+
+
     }
 
 }
