@@ -1,7 +1,6 @@
 package tests.pricingtypetests;
 
-import models.pricingtype.PricingType;
-import models.pricingtype.PricingType3;
+import models.pricingtype.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import tests.TimeBuilder;
@@ -41,15 +40,36 @@ public class PricingType3Tests extends PricingTypeTests {
                                         .toMinutes(), 22.00},
                         {
                                 builder.reset()
-                                .setDays(3)
-                                .toMinutes(), 32.00}
+                                        .setDays(3)
+                                        .toMinutes(), 42.00}
                 }
         );
     }
 
     @Override
     public PricingType getPricingType() {
-        return new PricingType3();
+
+
+        var timeValue = new PricingTimeValue[13];
+
+        //until
+        timeValue[0] = new PricingTimeValue(PricingTimeValue.Types.TYPE_UNTIL, 1 * 60, 1);
+        timeValue[1] = new PricingTimeValue(PricingTimeValue.Types.TYPE_UNTIL, 2 * 60, 2);
+
+        //until + each
+        for (int timeInHours = 2; timeInHours <= 12; timeInHours++) {
+            timeValue[timeInHours - 1] = new PricingTimeValue(PricingTimeValue.Types.TYPE_UNTIL, timeInHours * 60, timeInHours);
+        }
+
+        //after
+        timeValue[12] = new PricingTimeValue(PricingTimeValue.Types.TYPE_EACH, 24 * 60, 10.0);
+
+        var pricingTypeData = new PricingTypeData(
+                timeValue);
+
+        return new PricingType3(pricingTypeData);
+
+
     }
 
 

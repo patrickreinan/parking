@@ -20,7 +20,7 @@ public class PricingCalculatorUntil extends PricingCalculator {
 
             //arrumar esta alocação de memória...
             var pricingTimeValue = (PricingTimeValue) item;
-            if (pricingTimeValue.getTime() > timeInMinutes)
+            if (pricingTimeValue.getTime() >= timeInMinutes)
                 return pricingTimeValue.getValue()+ initialPrice;
 
             price = pricingTimeValue.getValue();

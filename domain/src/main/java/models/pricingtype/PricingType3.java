@@ -1,22 +1,22 @@
 package models.pricingtype;
 
+import models.calculator.PricingCalculatorEach;
+import models.calculator.PricingCalculatorUntil;
+
 public class PricingType3 implements PricingType {
+
+
+    private PricingTypeData pricingTypeData;
+
+    public PricingType3(PricingTypeData pricingTypeData) {
+        this.pricingTypeData = pricingTypeData;
+    }
 
     @Override
     public double calculate(int timeInMinutes) {
-        switch (timeInMinutes){
-            case (1 * 60) :
-                return 1.0;
-            case(3 * 60):
-                return 3.0;
-            case 12 * 60:
-                return 12.0;
-            case 14 *60:
-                return 22;
-            case 3 * 24 * 60:
-                return 32.0;
-            default:
-                return 0;
-        }
+        var calculator =new PricingCalculatorUntil();
+        calculator.setNext(new PricingCalculatorEach());
+
+        return calculator.calculate(timeInMinutes, pricingTypeData);
     }
 }

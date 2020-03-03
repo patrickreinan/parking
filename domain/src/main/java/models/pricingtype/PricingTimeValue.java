@@ -22,7 +22,6 @@ public class PricingTimeValue {
     public  enum  Types{
         TYPE_UNTIL ,
         TYPE_EACH,
-        TYPE_FIXED
     }
     public PricingTimeValue(Types pricingTimeType,int time, double value) {
 
