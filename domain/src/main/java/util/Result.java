@@ -22,6 +22,10 @@ public class Result {
         this.messages = messages;
     }
 
+    public Result(String message){
+        this.messages =new String[]{message};
+    }
+
     public boolean isSuccess() {
         return messages == null || messages.length == 0;
     }
