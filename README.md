@@ -17,7 +17,7 @@ This project is being built in 3 phases:
 + <b>Phase 3</b> - Build infrastructure and end-to-end (e2e) tests.
 
 ## Scenario
-A parking can have different pricing according how much time car stay parked in. Pricing is defined by time periods and these time periods can be combined. So we are considering just 3 rules:
+A parking can have different pricing according how much time car stay parked in. Pricing is defined by time periods and these time periods can be combined. So we are considering just 2 rules:
 
 ## Pricing Type 1: 
 + Period until 1 hour: price is $1
@@ -36,16 +36,6 @@ A parking can have different pricing according how much time car stay parked in.
 <b>Example:</b> 
 + 3 hours: price is $15
 + 10 hours: price is $50
-
-## Pricing Type 3: 
-+ Period until 1 hour: price is $1
-+ Period until 2 hours: price is $2
-+ Period until 12 hours: each 1 hour period add $1 
-+ After 12 hours the price is added in $10 by daily
- 
-<b>Example:</b>  
-+ 3 hours: price is $3
-+ 14 hours: price is $22 
 
 # Solution
 A application to simulate pricing.
