@@ -1,5 +1,6 @@
-package app.tests;
+package app.tests.calculate;
 
+import app.calculate.CalculateRequest;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +11,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 @RunWith(value = Parameterized.class)
-public class ApplicationSimulationParametrizedTests extends ApplicationSimulationTests {
-
+public class CalculateParametrizedTests extends CalculateTests {
 
     private final int time;
     private final UUID pricingTypeId;
@@ -68,7 +68,7 @@ public class ApplicationSimulationParametrizedTests extends ApplicationSimulatio
     }
 
 
-    public ApplicationSimulationParametrizedTests(int time, UUID pricingTypeId, double expectedResult) {
+    public CalculateParametrizedTests(int time, UUID pricingTypeId, double expectedResult) {
         super();
 
         this.time = time;
@@ -80,9 +80,9 @@ public class ApplicationSimulationParametrizedTests extends ApplicationSimulatio
     @Test
     public void calculate_value_pricingtype() {
 
-        var value = appSimulationService.calculate(time, pricingTypeId);
+        var value = handler.handle(new CalculateRequest(time, pricingTypeId));
 
-        Assert.assertTrue(value.getValue().get() == expectedValue);
+        Assert.assertTrue(value.getValue() == expectedValue);
 
     }
 

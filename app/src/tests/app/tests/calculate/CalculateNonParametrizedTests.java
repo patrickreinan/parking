@@ -1,5 +1,6 @@
-package app.tests;
+package app.tests.calculate;
 
+import app.calculate.CalculateRequest;
 import domain.models.pricingtype.PricingType;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,11 +8,7 @@ import org.junit.Test;
 import java.util.UUID;
 
 
-public class ApplicationSimulationNonParametrizedTests extends ApplicationSimulationTests {
-
-    public ApplicationSimulationNonParametrizedTests() {
-        super();
-    }
+public class CalculateNonParametrizedTests extends CalculateTests {
 
     @Test
     public void calculate_value_pricingtype_notfound() {
@@ -29,21 +26,11 @@ public class ApplicationSimulationNonParametrizedTests extends ApplicationSimula
             }
         };
 
-        var value = appSimulationService.calculate(time, invalidPricingType.getId());
+        var value = handler.handle(new CalculateRequest(time, invalidPricingType.getId()));
 
         Assert.assertFalse(value.isSuccess());
 
     }
 
-    @Test
-    public void get_all_pricing_types() {
 
-        var count = 2;
-
-        var result= appSimulationService.getAllPricingTypes();
-
-        Assert.assertTrue(result.isSuccess());
-        Assert.assertTrue(result.getValue().get().length==count);
-
-    }
 }
