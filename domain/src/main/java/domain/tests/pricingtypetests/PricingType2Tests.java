@@ -1,6 +1,8 @@
 package domain.tests.pricingtypetests;
 
 import domain.models.pricingtype.*;
+import domain.services.pricingtype.PricingType;
+import domain.services.pricingtype.PricingType2;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import util.time.TimeBuilder;
@@ -12,7 +14,7 @@ import java.util.UUID;
 public class PricingType2Tests extends PricingTypeTests {
 
 
-    public PricingType2Tests(int timeInMinutes, double expectedResult) {
+    public PricingType2Tests(int timeInMinutes, double expectedResult) throws Exception {
         super(timeInMinutes, expectedResult);
     }
 
@@ -44,14 +46,15 @@ public class PricingType2Tests extends PricingTypeTests {
     }
 
     @Override
-    public PricingType getPricingType() {
+    public PricingType getPricingType() throws Exception {
 
         var pricingTypeData = new PricingTypeData(
+                UUID.randomUUID(),
                 new PricingTimeValue[]{
                         new PricingTimeValue(PricingTimeValue.Types.TYPE_EACH, 1 * 60, 5)
-                });
+                }, PricingType2.class);
 
-        return new PricingType2(UUID.fromString("00000000-0000-0000-0000-000000000002"), pricingTypeData);
+        return new PricingType2(pricingTypeData);
 
 
     }

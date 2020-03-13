@@ -2,12 +2,12 @@ package app.tests.calculate;
 
 import app.calculate.CalculateHandler;
 import app.tests.InMemoryPricingTypeRepository;
-import domain.repositories.PricingTypeRepository;
+import domain.repositories.PricingTypeDataRepository;
 import domain.services.SimulationService;
 import domain.services.SimulationServiceImpl;
 
 public class CalculateTests {
-    protected final PricingTypeRepository repository;
+    protected final PricingTypeDataRepository repository;
     protected final SimulationService service;
     protected final CalculateHandler handler;
 

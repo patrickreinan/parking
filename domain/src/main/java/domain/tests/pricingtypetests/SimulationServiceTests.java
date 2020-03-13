@@ -1,6 +1,6 @@
 package domain.tests.pricingtypetests;
 
-import domain.models.pricingtype.PricingType;
+import domain.services.pricingtype.PricingType;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;

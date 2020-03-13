@@ -1,6 +1,6 @@
 package domain.tests.pricingtypetests;
 
-import domain.models.pricingtype.PricingType;
+import domain.services.pricingtype.PricingType;
 import org.junit.Assert;
 import org.junit.Test;
 import domain.services.SimulationService;
@@ -12,9 +12,9 @@ public abstract class PricingTypeTests {
     private SimulationService service;
     private PricingType pricingType;
 
-    public abstract  PricingType getPricingType();
+    public abstract  PricingType getPricingType() throws Exception;
 
-    public PricingTypeTests(int timeInMinutes, double expectedResult) {
+    public PricingTypeTests(int timeInMinutes, double expectedResult) throws Exception {
 
         this.timeInMinutes = timeInMinutes;
         this.expectedResult = expectedResult;
@@ -22,7 +22,7 @@ public abstract class PricingTypeTests {
 
     }
 
-    private void initialize() {
+    private void initialize() throws Exception {
 
         pricingType = getPricingType();
         service = new SimulationServiceImpl();

@@ -1,7 +1,6 @@
 package app.tests.calculate;
 
 import app.calculate.CalculateRequest;
-import domain.models.pricingtype.PricingType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,22 +10,10 @@ import java.util.UUID;
 public class CalculateNonParametrizedTests extends CalculateTests {
 
     @Test
-    public void calculate_value_pricingtype_notfound() {
+    public void calculate_value_pricingtypedata_notfound() throws Exception {
         var time = 1;
 
-        var invalidPricingType = new PricingType() {
-            @Override
-            public UUID getId() {
-                return UUID.randomUUID();
-            }
-
-            @Override
-            public double calculate(int timeInMinutes) {
-                return 0;
-            }
-        };
-
-        var value = handler.handle(new CalculateRequest(time, invalidPricingType.getId()));
+   var value = handler.handle(new CalculateRequest(time, UUID.randomUUID()));
 
         Assert.assertFalse(value.isSuccess());
 

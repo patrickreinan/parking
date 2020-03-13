@@ -1,15 +1,15 @@
 package app.getallpricingtypes;
 
 import app.util.Handler;
-import domain.repositories.PricingTypeRepository;
-import domain.services.SimulationService;
+import domain.repositories.PricingTypeDataRepository;
+
 
 public class GetAllPricingTypesHandler implements Handler<GetAllPricingTypesRequest, GetAllPricingTypesResponse> {
 
 
-    private final PricingTypeRepository repository;
+    private final PricingTypeDataRepository repository;
 
-    public GetAllPricingTypesHandler(PricingTypeRepository repository) {
+    public GetAllPricingTypesHandler(PricingTypeDataRepository repository) {
         this.repository = repository;
     }
 

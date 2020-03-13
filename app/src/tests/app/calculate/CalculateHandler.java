@@ -1,24 +1,41 @@
 package app.calculate;
 
 import app.util.Handler;
-import domain.repositories.PricingTypeRepository;
+import domain.services.pricingtype.PricingType;
+import domain.models.pricingtype.PricingTypeData;
+import domain.repositories.PricingTypeDataRepository;
 import domain.services.SimulationService;
-import domain.util.Result;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 
 public class CalculateHandler implements Handler<CalculateRequest, CalculateResponse> {
 
     private final SimulationService service;
-    private final PricingTypeRepository repository;
+    private final PricingTypeDataRepository repository;
 
-    public CalculateHandler(SimulationService service, PricingTypeRepository repository) {
+    public CalculateHandler(SimulationService service, PricingTypeDataRepository repository) {
         this.service = service;
         this.repository = repository;
     }
+
+    private PricingType pricingTypeFromData( PricingTypeData pricingTypeData) throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+
+            Constructor<?> c = Class.forName(pricingTypeData.getClass().getName()).getDeclaredConstructor(pricingTypeData.getClass());
+            c.setAccessible(true);
+            return (PricingType) c.newInstance(new Object[] {pricingTypeData});
+
+
+    }
+
     @Override
     public CalculateResponse handle(CalculateRequest request) {
         try {
 
-            var pricingType = repository.getById(request.getPricingTypeId());
+            var pricingTypeData = repository.getById(request.getPricingTypeDataId());
+            var pricingType = pricingTypeFromData(pricingTypeData);
+
             var result = service.calculate(pricingType, request.getTime());
             return new CalculateResponse(result.getValue().get());
 

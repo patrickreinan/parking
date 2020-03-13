@@ -1,6 +1,6 @@
 package domain.services;
 
-import domain.models.pricingtype.PricingType;
+import domain.services.pricingtype.PricingType;
 import domain.util.Result;
 
 public interface SimulationService {
