@@ -20,11 +20,13 @@ public class CalculateHandler implements Handler<CalculateRequest, CalculateResp
         this.repository = repository;
     }
 
-    private PricingType pricingTypeFromData( PricingTypeData pricingTypeData) throws ClassNotFoundException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+    private PricingType pricingTypeFromData(PricingTypeData pricingTypeData) throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
 
-            Constructor<?> c = Class.forName(pricingTypeData.getClass().getName()).getDeclaredConstructor(pricingTypeData.getClass());
-            c.setAccessible(true);
-            return (PricingType) c.newInstance(new Object[] {pricingTypeData});
+        var c = pricingTypeData.getPricingTypeClass().getConstructor(PricingTypeData.class);
+        if (c == null)
+            return null;
+        c.setAccessible(true);
+        return (PricingType) c.newInstance(new Object[]{pricingTypeData});
 
 
     }
@@ -37,11 +39,14 @@ public class CalculateHandler implements Handler<CalculateRequest, CalculateResp
             var pricingType = pricingTypeFromData(pricingTypeData);
 
             var result = service.calculate(pricingType, request.getTime());
-            return new CalculateResponse(result.getValue().get());
+            if (result.getValue().isPresent())
+                return new CalculateResponse(result.getValue().get());
+            else
+                throw new Exception("Could not calculate value");
 
         } catch (Exception e) {
 
-            return new CalculateResponse(new String[] {e.getMessage()});
+            return new CalculateResponse(new String[]{e.getMessage()});
         }
     }
 }

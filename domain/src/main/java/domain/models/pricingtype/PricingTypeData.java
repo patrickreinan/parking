@@ -27,6 +27,7 @@ public class PricingTypeData {
         return id;
     }
 
+
     public Class getPricingTypeClass() {
         return pricingTypeClass;
     }
