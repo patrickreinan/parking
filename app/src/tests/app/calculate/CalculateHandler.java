@@ -27,8 +27,6 @@ public class CalculateHandler implements Handler<CalculateRequest, CalculateResp
             return null;
         c.setAccessible(true);
         return (PricingType) c.newInstance(new Object[]{pricingTypeData});
-
-
     }
 
     @Override
