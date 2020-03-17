@@ -13,8 +13,8 @@ Parking is a simple Java software built using TDD. We are using test-first metho
 This project is being built in 3 phases:
 
 + <b>Phase 1</b> - Build domain layer and its unit tests.
-+ <b>Phase 2</b> - Build application layer and integration tests.
-+ <b>Phase 3</b> - Build infrastructure and end-to-end (e2e) tests.
++ <b>Phase 2</b> - Build application layer and tests.
++ <b>Phase 3</b> - Build infrastructure, integration and end-to-end (e2e) tests.
 
 ## Scenario
 A parking can have different pricing according how much time car stay parked in. Pricing is defined by time periods and these time periods can be combined. So we are considering just 2 rules:
